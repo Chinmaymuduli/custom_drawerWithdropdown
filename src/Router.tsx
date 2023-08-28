@@ -1,12 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
+import PublicRoutes from './routes/public';
+import {useAppContext} from './contexts';
 
 const Router = () => {
-  return (
-    <View>
-      <Text>Router</Text>
-    </View>
-  );
+  const {isLoggedIn} = useAppContext();
+  return <PublicRoutes />;
 };
 
 export default Router;
