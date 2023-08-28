@@ -1,8 +1,8 @@
 import {extendTheme} from 'native-base';
 
 export const COLORS = {
-  primary: '#5B50A1',
-  secondary: '#C43C5C',
+  primary: '#1B4E9B',
+  secondary: '#0EA861',
   darkblue: '#504391',
   gray: '#6D788D',
   // theme-red: "#FF4D49",

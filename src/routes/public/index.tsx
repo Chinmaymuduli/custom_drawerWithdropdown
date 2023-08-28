@@ -17,6 +17,7 @@ export default function PublicRoutes({
       initialRouteName={initialRouteName}
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={Auth.Login} />
+      <Stack.Screen name="ForgotPassword" component={Auth.ForgotPassword} />
     </Stack.Navigator>
   );
 }

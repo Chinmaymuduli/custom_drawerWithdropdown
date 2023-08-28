@@ -15,8 +15,11 @@ import {
   useToast,
 } from 'native-base';
 import {COLORS} from '~/styles';
+import {IMAGES} from '~/assets';
+import {useNavigation} from '@react-navigation/native';
 
 const Login = () => {
+  // const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
   const {
@@ -29,6 +32,7 @@ const Login = () => {
 
   const onSubmit = async (data: any) => {
     console.log(data);
+    // navigation.navigate('ForgotPassword');
   };
 
   return (
@@ -37,9 +41,9 @@ const Login = () => {
         _contentContainerStyle={{pb: 7}}
         keyboardShouldPersistTaps={'always'}>
         <Box px={8} mt={20}>
-          {/* <Center>
+          <Center>
             <Image
-              source={IMAGES.LOGO}
+              source={IMAGES.IGCE}
               alt="logo"
               style={{
                 width: 200,
@@ -47,7 +51,7 @@ const Login = () => {
               }}
               resizeMode={'contain'}
             />
-          </Center> */}
+          </Center>
           <Box mt={10}>
             <Box>
               <Text fontSize={30} fontFamily={'Montserrat-Bold'}>
@@ -59,14 +63,14 @@ const Login = () => {
             </Box>
             <VStack mt={7} space={2}>
               <Text fontWeight={'medium'} fontSize={15}>
-                ID
+                Email
               </Text>
               <FormControl isRequired isInvalid={'ID' in errors} mt={1}>
                 <Controller
                   control={control}
                   render={({field: {onChange, onBlur, value}}) => (
                     <Input
-                      placeholder="Enter your ID"
+                      placeholder="Enter your Email"
                       borderRadius={8}
                       onChangeText={onChange}
                       onBlur={onBlur}
