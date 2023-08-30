@@ -16,10 +16,11 @@ import {
 } from 'native-base';
 import {COLORS} from '~/styles';
 import {IMAGES} from '~/assets';
-import {useNavigation} from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useAppContext} from '~/contexts';
 
 const Login = () => {
-  // const navigation = useNavigation();
+  const {setIsLoggedIn} = useAppContext();
   const [modalVisible, setModalVisible] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
   const {
@@ -32,7 +33,7 @@ const Login = () => {
 
   const onSubmit = async (data: any) => {
     console.log(data);
-    // navigation.navigate('ForgotPassword');
+    setIsLoggedIn(true);
   };
 
   return (
@@ -65,7 +66,7 @@ const Login = () => {
               <Text fontWeight={'medium'} fontSize={15}>
                 Email
               </Text>
-              <FormControl isRequired isInvalid={'ID' in errors} mt={1}>
+              <FormControl isRequired isInvalid={'Email' in errors} mt={1}>
                 <Controller
                   control={control}
                   render={({field: {onChange, onBlur, value}}) => (
@@ -83,14 +84,14 @@ const Login = () => {
                       mt={1}
                     />
                   )}
-                  name="ID"
+                  name="Email"
                   rules={{
-                    required: '*ID is required',
+                    required: '*Email is required',
                   }}
                   defaultValue=""
                 />
                 <FormControl.ErrorMessage>
-                  {errors.ID?.message}
+                  {errors.Email?.message}
                 </FormControl.ErrorMessage>
               </FormControl>
             </VStack>
@@ -115,15 +116,15 @@ const Login = () => {
                       autoCapitalize={'none'}
                       secureTextEntry={showPassword ? true : false}
                       mt={1}
-                      //   InputRightElement={
-                      //     <Box mr={2}>
-                      //       <Ionicons
-                      //         name={showPassword ? 'eye' : 'eye-off'}
-                      //         size={25}
-                      //         onPress={() => setShowPassword(!showPassword)}
-                      //       />
-                      //     </Box>
-                      //   }
+                      InputRightElement={
+                        <Box mr={2}>
+                          <Ionicons
+                            name={showPassword ? 'eye' : 'eye-off'}
+                            size={25}
+                            onPress={() => setShowPassword(!showPassword)}
+                          />
+                        </Box>
+                      }
                     />
                   )}
                   name="password"
